@@ -18,8 +18,6 @@ public class TestWordladder
     extends TestCase
 {
     List<String> testDict = new ArrayList<String>();
-    String begin = "test";
-    String end = "case";
     /**
      * Create the test case
      *
@@ -32,7 +30,6 @@ public class TestWordladder
 
     public void testCreateLadder() throws IOException
     {
-        int length = 5;
         String s;
         File file = new File("dictionary.txt");
         BufferedReader fr = new BufferedReader(new FileReader(file));
@@ -40,7 +37,8 @@ public class TestWordladder
         {
             testDict.add(s);
         }
-        assertEquals(length, Wordladder.createLadder(testDict, begin, end));
+        assertEquals(5, Wordladder.createLadder(testDict, "test", "case"));
+        assertEquals(0, Wordladder.createLadder(testDict, "metal", "azure"));
     }
     /**
      * @return the suite of tests being tested
