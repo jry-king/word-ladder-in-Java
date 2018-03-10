@@ -7,12 +7,13 @@ import java.util.*;
 
 public class Wordladder
 {
+    //initiate dictionary
     public static boolean initiate(List<String> d) throws IOException
     {
         System.out.println("Dictionary file name:");
         String filename,s;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        filename = "src/" + br.readLine();
+        filename =br.readLine();
         File file = new File(filename);
         if(file == null)
         {
@@ -26,7 +27,8 @@ public class Wordladder
         return true;
     }
 
-    public static void createLadder(List<String> dict, final String begin, final String end)
+    //create wordladders
+    public static int createLadder(List<String> dict, final String begin, final String end)
     {
         int l = begin.length();
         int count = 0;
@@ -71,7 +73,7 @@ public class Wordladder
                             System.out.print("\nThe length of the ladder is:");
                             System.out.print(count);
                             System.out.print('\n');
-                            return;
+                            return count;
                         }
                         else
                         {
@@ -89,8 +91,10 @@ public class Wordladder
         System.out.print(" back to ");
         System.out.print(begin);
         System.out.print(".\n");
+        return 0;
     }
 
+    //verify the validity of strings(i.e. check if the string is made of letters)
     public static boolean isValid(final String s)
     {
         char[] arr = s.toCharArray();
@@ -122,7 +126,7 @@ public class Wordladder
                     System.out.print("Invalid input!");
                     continue;
                 }
-                System.out.print("Word #1 (or enter to quit):");
+                System.out.print("Word #2 (or enter to quit):");
                 end = br.readLine();
                 if(end.equals(""))
                 {
